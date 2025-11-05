@@ -11,12 +11,18 @@
     <header>
       <div class="header-container">
         <div class="logo">Их имена уходят в обелиски...</div>
-        <button class="mobile-menu-btn">☰</button>
-        <nav>
+
+        <button class="mobile-menu-btn" id="burger">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+        <nav id="nav">
           <ul>
             <li><a href="#alley">Аллея памяти</a></li>
             <li><a href="#heroes">Герои</a></li>
-            <li><a href="#about">О нас</a></li>
+            <li><a href="#about">О проекте</a></li>
           </ul>
         </nav>
       </div>
@@ -24,10 +30,7 @@
 
     <div class="hero">
       <h1>Их имена уходят в обелиски...</h1>
-      <p>
-        Государственное учреждение образования «Средняя школа № 10 г. Светлогорска имени С. Л.
-        Краснопёрова»
-      </p>
+      <p>ГУО «Средняя школа № 10 г. Светлогорска имени С. Л. Краснопёрова»</p>
     </div>
 
     <div class="container">
@@ -40,11 +43,18 @@
           освобождавшим Светлогорский район, среди которых уроженец г. Чернушка Пермского края С.Л.
           Красноперов, чье имя вот уже несколько лет с гордостью носит школа.
         </p>
-        <img class="best-image" src="img/1.jpg" />
+
+        <div class="images-layout">
+          <img class="best-image" src="img/0.jpg" />
+          <img class="best-image" src="img/0-2.jpg" />
+          <img class="best-image" src="img/0-1.jpg" />
+          <img class="best-image" src="img/1.jpg" />
+        </div>
       </section>
 
       <section id="heroes">
         <h2>Герои Советского Союза</h2>
+
         <div class="heroes-grid">
           <div class="hero-card">
             <img class="best-image" src="img/2.jpg" />
@@ -249,10 +259,10 @@
       </section>
 
       <section id="about">
-        <h2>О нас</h2>
+        <h2>О проекте</h2>
         <p>
           Выполнил: учащийся 8 «А» класса, ГУО «Средняя школа № 10 г. Светлогорска имени С. Л.
-          Краснопёрова»
+          Краснопёрова», Трифонов Ярослав
         </p>
         <p>Руководитель: учитель информатики Асадчая Е. А.</p>
         <p></p>
@@ -261,14 +271,12 @@
 
     <footer>
       <div class="container">
-        <p>
-          Государственное учреждение образования «Средняя школа № 10 г. Светлогорска имени С. Л.
-          Краснопёрова»
-        </p>
+        <p>ГУО «Средняя школа № 10 г. Светлогорска имени С. Л. Краснопёрова»</p>
         <p>© 2025 Их имена уходят в обелиски...</p>
       </div>
     </footer>
 
-    <script src="js/script.js"></script>
+    <script src="js/script.js" defer></script>
+    <script src="js/burger.js" defer></script>
   </body>
 </html>

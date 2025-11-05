@@ -10,16 +10,3 @@ document.querySelectorAll('nav a').forEach((anchor) => {
     })
   })
 })
-
-const mobileMenuBtn = document.querySelector('.mobile-menu-btn')
-const nav = document.querySelector('nav')
-
-mobileMenuBtn.addEventListener('click', () => {
-  nav.style.display = nav.style.display === 'block' ? 'none' : 'block'
-})
-
-window.addEventListener('resize', () => {
-  if (window.innerWidth > 768) {
-    nav.style.display = ''
-  }
-})
