@@ -80,6 +80,7 @@ header {
 .logo {
   font-size: 1.5rem;
   font-weight: bold;
+  font-style: italic;
 }
 
 nav ul {
@@ -279,6 +280,7 @@ nav a:hover {
   font-size: 2.5rem;
   margin-bottom: 1rem;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  font-style: italic;
 }
 
 .hero p {
