@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ru">
   <head>
     <meta charset="UTF-8" />
@@ -12,23 +12,29 @@
     <div id="splash">
       <div class="splash-bg"></div>
       <div class="splash-content">
-        <button id="blob-btn" class="blob-btn">
-          Открыть сайт
-          <span class="blob-btn__inner">
-            <span class="blob-btn__blobs">
-              <span class="blob-btn__blob"></span>
-              <span class="blob-btn__blob"></span>
-              <span class="blob-btn__blob"></span>
-              <span class="blob-btn__blob"></span>
-            </span>
-          </span>
-        </button>
+        <div class="buttons">
+          <button
+            id="blob-btn"
+            class="blob-btn"
+            type="button"
+            aria-label="Primary action"
+          >
+            <span class="blob-btn__bg" aria-hidden="true"></span>
+            <span class="blob-btn__shine" aria-hidden="true"></span>
+            <span class="blob-btn__label">Нажать</span>
+          </button>
+        </div>
+
         <br />
 
         <svg xmlns="http://www.w3.org/2000/svg" version="1.1">
           <defs>
             <filter id="goo">
-              <feGaussianBlur in="SourceGraphic" result="blur" stdDeviation="10"></feGaussianBlur>
+              <feGaussianBlur
+                in="SourceGraphic"
+                result="blur"
+                stdDeviation="10"
+              ></feGaussianBlur>
               <feColorMatrix
                 in="blur"
                 mode="matrix"
@@ -71,11 +77,13 @@
       <section id="alley">
         <h2>Аллея памяти и славы</h2>
         <p>
-          26 июля в рамках празднования Дня города и в юбилейный для страны год — год 80-летия
-          Великой Победы — на территории средней школы 10 г. Светлогорска имени С. Л. Красноперова
-          торжественно открыли Аллею памяти и славы, посвященную Героям Советского Союза,
-          освобождавшим Светлогорский район, среди которых уроженец г. Чернушка Пермского края С.Л.
-          Красноперов, чье имя вот уже несколько лет с гордостью носит школа.
+          26 июля в рамках празднования Дня города и в юбилейный для страны год
+          — год 80-летия Великой Победы — на территории средней школы 10 г.
+          Светлогорска имени С. Л. Красноперова торжественно открыли Аллею
+          памяти и славы, посвященную Героям Советского Союза, освобождавшим
+          Светлогорский район, среди которых уроженец г. Чернушка Пермского края
+          С.Л. Красноперов, чье имя вот уже несколько лет с гордостью носит
+          школа.
         </p>
 
         <div class="images-layout">
@@ -133,7 +141,8 @@
             src="img/quote.jpg"
           />
           <p>
-            "Нет благороднее миссии, чем сохранение исторической памяти во имя светлого будущего".
+            "Нет благороднее миссии, чем сохранение исторической памяти во имя
+            светлого будущего".
           </p>
           <p style="text-align: right; margin-top: 1rem">А. Г. Лукашенко</p>
         </div>
@@ -142,8 +151,8 @@
       <section id="about">
         <h2>О проекте</h2>
         <p>
-          Выполнил: учащийся 8 «А» класса, ГУО «Средняя школа № 10 г. Светлогорска имени С. Л.
-          Краснопёрова», Трифонов Ярослав
+          Выполнил: учащийся 8 «А» класса, ГУО «Средняя школа № 10 г.
+          Светлогорска имени С. Л. Краснопёрова», Трифонов Ярослав.
         </p>
         <p>Руководитель: учитель информатики Асадчая Е. А.</p>
         <p></p>
