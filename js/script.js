@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
   const splash = document.getElementById("splash");
-  const enterBtn = document.getElementById("blob-btn");
+  const enterBtn = document.getElementById("button-64");
 
   const KEY = "splashSeen";
 
