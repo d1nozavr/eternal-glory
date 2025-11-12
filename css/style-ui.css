@@ -166,6 +166,7 @@ p {
 
 .slider img {
   flex: 0 0 100%;
+  /*width: 600px;*/
   height: 400px;
   object-fit: center/cover no-repeat;
   border: 5px solid var(--primary-color);
