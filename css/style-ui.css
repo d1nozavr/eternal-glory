@@ -21,6 +21,26 @@
   --shadow: 0 10px 30px rgba(2, 6, 23, 0.6);
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
+#alley {
+  scroll-margin-top: 150px;
+}
+
+#heroes {
+  scroll-margin-top: 150px;
+}
+
+#about {
+  scroll-margin-top: 150px;
+}
+
+#museum {
+  scroll-margin-top: 150px;
+}
+
 body {
   background: linear-gradient(to right, #91e5f6, #59a5d8);
   color: var(--text-color);
@@ -104,9 +124,11 @@ header {
 }
 
 .logo img {
-  width: 75px;
-  height: 75px;
+  width: 85px;
+  height: 85px;
   margin-right: 25px;
+  background-color: #fff;
+  border-radius: 75%;
 }
 
 nav {
@@ -152,8 +174,7 @@ p {
 
 .slider-container {
   position: relative;
-  width: 100%;
-  max-width: 800px;
+  width: 600px;
   height: 400px;
   margin: 0 auto;
   overflow: hidden;
@@ -165,10 +186,10 @@ p {
 }
 
 .slider img {
-  flex: 0 0 100%;
-  /*width: 600px;*/
+  width: 100%;
   height: 400px;
-  object-fit: center/cover no-repeat;
+  object-fit: cover;
+  object-position: center;
   border: 5px solid var(--primary-color);
   border-radius: 10px;
 }
@@ -210,12 +231,13 @@ p {
   border: 5px solid var(--primary-color);
   width: 100%;
   height: auto;
-  object-fit: contain;
+  object-fit: center/cover no-repeat;
   border-radius: 10px;
   margin: 25px 0 0 0;
   transition:
     transform 0.2s ease-in-out,
     box-shadow 0.2s ease-in-out;
+  align-self: stretch;
 }
 
 .best-image:hover {
@@ -225,7 +247,11 @@ p {
 
 .images-layout {
   display: grid;
-  gap: 1rem;
+  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  align-items: start;
+  justify-items: center;
+  padding: 1rem;
 }
 
 @media (min-width: 768px) {
@@ -318,6 +344,10 @@ p {
   text-align: center;
   margin: 2rem auto;
   z-index: 0;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 .heroes-diamonds::before {
@@ -458,6 +488,10 @@ section ul {
   margin: 0 50px;
 }
 
+section ul li {
+  font-size: 18px;
+}
+
 section ol {
   margin: 0 55px;
 }
@@ -470,6 +504,10 @@ h2 {
   display: flex;
   align-items: center;
   z-index: 1;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 h2:before {
