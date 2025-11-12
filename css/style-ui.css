@@ -128,7 +128,7 @@ nav a {
 }
 
 nav a:hover {
-  color: var(--secondary-color);
+  color: var(--accent2);
   background-color: rgba(255, 255, 255, 0.1);
 }
 
@@ -359,6 +359,7 @@ section {
 
 section p {
   margin: 15px;
+  font-size: 18px;
 }
 
 section ul {
@@ -524,11 +525,6 @@ h2:before {
   .fancy-iframe__frame iframe {
     height: 420px;
   }
-}
-
-.fancy-iframe__frame:hover iframe {
-  transform: translateY(-6px) scale(1.01);
-  box-shadow: 0 18px 40px rgba(12, 18, 40, 0.45);
 }
 
 .fancy-iframe__caption {
