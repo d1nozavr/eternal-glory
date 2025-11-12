@@ -57,11 +57,16 @@
           школа.
         </p>
 
-        <div class="images-layout">
-          <img class="best-image" src="img/1.jpg" />
-          <img class="best-image" src="img/2.jpg" />
-          <img class="best-image" src="img/3.jpg" />
-          <img class="best-image" src="img/4.jpg" />
+        <div class="slider-container">
+          <div class="slider">
+            <img src="img/1.jpg">
+            <img src="img/2.jpg">
+            <img src="img/3.jpg">
+            <img src="img/4.jpg">
+          </div>
+
+          <button class="prev-button" aria-label="Посмотреть предыдущий слайд">&lt;</button>
+          <button class="next-button" aria-label="Посмотреть следующий слайд">&gt</button>
         </div>
 
         <div class="quote">
@@ -75,7 +80,7 @@
       </section>
 
       <section id="heroes" class="heroes-diamonds">
-        <h2>Герои Советского Союза</h2>
+        <h2>Герои Советского Союза, освобождавшие Светлогорский район</h2>
 
         <div class="diamond-grid">
           <a class="diamond" href="heroes/1.html"
@@ -157,6 +162,7 @@
       </div>
     </footer>
 
+    <script src="js/slider.js" defer></script>
     <script src="js/script.js" defer></script>
     <script src="js/burger.js" defer></script>
   </body>

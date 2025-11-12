@@ -44,7 +44,7 @@ body {
   position: absolute;
   inset: 0;
   background: url("../img/bg.jpg") center/cover no-repeat;
-  filter: blur(2.5px);
+  filter: blur(1.5px);
   transform: scale(1.1);
 }
 
@@ -140,6 +140,62 @@ nav a:hover {
 
 p {
   text-indent: 15px;
+}
+
+.slider-container {
+  position: relative;
+  width: 100%;
+  max-width: 800px;
+  height: 400px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.slider {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+.slider img {
+  flex: 0 0 100%;
+  height: 400px;
+  object-fit: center/cover no-repeat;
+  /*object-position: center;*/
+  border: 5px solid var(--primary-color);
+  border-radius: 10px;
+}
+
+.prev-button,
+.next-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 50px;
+  height: 50px;
+  background-color: rgba(88, 112, 154, 0.7);
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  font-size: 24px;
+  color: black;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.prev-button {
+  left: 10px;
+}
+
+.prev-button:hover {
+  transform: translateY(-55%);
+  background-color: #fff;
+}
+
+.next-button {
+  right: 10px;
+}
+
+.next-button:hover {
+  transform: translateY(-55%);
+  background-color: #fff;
 }
 
 .best-image {
@@ -264,24 +320,55 @@ p {
   width: 100%;
   height: 100%;
   background: url("../img/quote.jpg") center/cover no-repeat;
-  filter: blur(5px);
+  filter: blur(4px);
   z-index: -1;
 }
 
 .diamond-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-  gap: 2rem;
-  justify-items: center;
+  grid-template-columns: repeat(7, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+  justify-content: center;
   align-items: center;
-  margin-top: 2rem;
-  gap: 85px 55px;
-  padding: 15px 15px;
+  margin: 2rem;
+  padding: 15px;
+  gap: 85px 85px;
 }
 
-.diamond-grid .diamond:last-child {
-  grid-column: 1 / -1;
-  justify-self: center;
+.diamond:nth-child(1) {
+  grid-area: 1 / 4 / 2 / 5;
+}
+.diamond:nth-child(2) {
+  grid-area: 2 / 3 / 3 / 4;
+}
+.diamond:nth-child(3) {
+  grid-area: 2 / 4 / 3 / 5;
+}
+.diamond:nth-child(4) {
+  grid-area: 2 / 5 / 3 / 6;
+}
+.diamond:nth-child(5) {
+  grid-area: 3 / 2 / 4 / 3;
+}
+.diamond:nth-child(6) {
+  grid-area: 3 / 3 / 4 / 4;
+}
+.diamond:nth-child(7) {
+  grid-area: 3 / 4 / 4 / 5;
+}
+.diamond:nth-child(8) {
+  grid-area: 3 / 5 / 4 / 6;
+}
+.diamond:nth-child(9) {
+  grid-area: 3 / 6 / 4 / 7;
+}
+.diamond:nth-child(10) {
+  grid-area: 4 / 3 / 5 / 4;
+}
+.diamond:nth-child(11) {
+  grid-area: 4 / 5 / 5 / 6;
 }
 
 .diamond {
@@ -349,11 +436,12 @@ section {
   margin-bottom: 2rem;
   border-radius: 8px;
   border: 2px solid var(--primary-color);
+  color: #f8f8ff;
 }
 
 section p {
   margin: 15px;
-  font-size: 18px;
+  font-size: 20px;
 }
 
 section ul {
@@ -460,11 +548,13 @@ h2:before {
 .quote p {
   text-align: right;
   margin-top: 1rem;
+  color: #f8f8ff;
 }
 
 .quote h2 {
   text-align: left;
   font-size: 16px;
+  color: #f8f8ff;
 }
 
 .fancy-iframe {
