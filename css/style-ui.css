@@ -192,7 +192,6 @@ p {
   object-position: center;
   border: 5px solid var(--primary-color);
   border-radius: 10px;
-  flex-shrink: 0;
 }
 
 .prev-button,
@@ -336,8 +335,9 @@ p {
   line-height: 1.6;
   font-size: 20px;
   color: #f8f8ff;
-  margin-top: 20px;
   text-align: justify;
+  margin-top: 10px;
+  text-indent: 45px;
 }
 
 .heroes-diamonds {
@@ -373,6 +373,7 @@ p {
   align-items: center;
   padding: 15px;
   gap: 85px 85px;
+  margin-bottom: -200px;
 }
 
 .diamond:nth-child(1) {
@@ -481,7 +482,7 @@ section {
 }
 
 section p {
-  margin: 15px;
+  /*margin: 15px;*/
   font-size: 20px;
 }
 
@@ -503,23 +504,25 @@ h2 {
   padding-bottom: 0.5rem;
   border-bottom: 2px solid var(--primary-color);
   display: flex;
-  align-items: center;
-  justify-content: flex-start;
+  text-align: center;
+  justify-content: center;
+  position: relative;
   z-index: 1;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+  font-size: 28px;
 }
 
 h2:before {
   content: "";
-  display: inline-block;
+  position: absolute;
+  left: 0;
+  top: 0;
   width: 10px;
-  height: 30px;
+  height: 100%;
   background-color: var(--primary-color);
-  margin-right: 10px;
-  border-radius: 2px;
 }
 
 .heroes-grid {
