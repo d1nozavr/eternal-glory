@@ -339,17 +339,6 @@ p {
   text-align: justify;
 }
 
-@media (max-width: 768px) {
-  .hero-page {
-    grid-template-columns: 1fr;
-    text-align: center;
-    padding: 1.5rem;
-  }
-  .hero-photo img {
-    margin-bottom: 1rem;
-  }
-}
-
 .heroes-diamonds {
   position: relative;
   text-align: center;
@@ -802,15 +791,6 @@ footer {
     border-radius: 8px;
   }
 
-  .hero-page {
-    grid-template-columns: 1fr;
-    padding: 1rem;
-  }
-
-  .hero {
-    padding: 2rem 0;
-  }
-
   section {
     padding: 1.25rem;
   }
@@ -852,15 +832,6 @@ footer {
     transform: translateY(0);
   }
 }
-
-.hero-card:nth-child(odd) {
-  animation-delay: 0.1s;
-}
-
-.hero-card:nth-child(even) {
-  animation-delay: 0.2s;
-}
-
 .quote p {
   margin: 20px 0 0 0;
   font-size: 18px;
