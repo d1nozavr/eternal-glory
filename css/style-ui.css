@@ -176,7 +176,7 @@ p {
   position: relative;
   width: 600px;
   height: 400px;
-  margin: 0 auto;
+  margin: 25px auto;
   overflow: hidden;
 }
 
@@ -482,7 +482,6 @@ section {
 }
 
 section p {
-  /*margin: 15px;*/
   font-size: 20px;
 }
 
