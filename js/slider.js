@@ -27,4 +27,4 @@ updateSlider();
 
 setInterval(() => {
   showNextSlide();
-}, 5000);
+}, 10000);
