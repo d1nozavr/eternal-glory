@@ -9,24 +9,43 @@
 
   <body>
     <header>
-      <div class="header-container">
-        <div class="logo">
-          <img src="img/logo.png">
-          ГУО «Средняя школа № 10 <br />г. Светлогорска имени С. Л. Краснопёрова»
+      <div class="header">
+        <div class="header__info">
+          <a class="logo group" href="https://school10sv.by/" target="_blank">
+            <img src="img/logo.png" alt="Логотип">
+
+            <div class="logo__header">
+              <h1>ГУО «Средняя школа № 10 г. Светлогорска имени С. Л. Краснопёрова»<h1>
+            </div>
+          </a>
+
+          <button id="menu-burger-icon" class="menu-burger">
+            <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" fill="currentColor" role="img" width="20"
+              height="20" preserveAspectRatio="xMidYMid meet" viewBox="0 0 20 20">
+              <path
+                d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z">
+              </path>
+            </svg>
+          </button>
         </div>
 
-        <button class="mobile-menu-btn" id="burger">
-          <span></span>
-          <span></span>
-          <span></span>
-        </button>
-
-        <nav id="nav">
+        <nav class="menu">
           <ul>
-            <li><a href="index.html#alley">Аллея памяти и славы</a></li>
-            <li><a href="index.html#heroes">Герои</a></li>
-            <li><a href="#museum">Музей Боевой славы</a></li>
-            <li><a href="index.html#about">О нас</a></li>
+            <li>
+              <a href="index.html#alley">Аллея Памяти и Славы</a>
+            </li>
+
+            <li>
+              <a href="index.html#heroes">Герои</a>
+            </li>
+
+            <li>
+              <a href="#museum">Музей Боевой славы</a>
+            </li>
+
+            <li>
+              <a href="index.html#about">О нас</a>
+            </li>
           </ul>
         </nav>
       </div>
@@ -187,7 +206,6 @@
     </footer>
 
     <script src="js/back.js" defer></script>
-    <script src="js/slider.js" defer></script>
     <script src="js/burger.js" defer></script>
   </body>
 </html>

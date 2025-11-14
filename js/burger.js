@@ -1,15 +1,6 @@
-const burger = document.getElementById('burger')
-const nav = document.getElementById('nav')
-const navLinks = nav.querySelectorAll('a')
+const burger = document.getElementById("menu-burger-icon");
+const menu = document.querySelector(".menu");
 
-burger.addEventListener('click', () => {
-  burger.classList.toggle('active')
-  nav.classList.toggle('open')
-})
-
-navLinks.forEach((link) => {
-  link.addEventListener('click', () => {
-    burger.classList.remove('active')
-    nav.classList.remove('open')
-  })
-})
+burger.addEventListener("click", () => {
+  menu.classList.toggle("active");
+});
