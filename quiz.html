@@ -1,0 +1,862 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Их имена уходят в обелиски...</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      }
+
+      /* Global variables */
+      :root{
+        --primary-color: #1a3d6d;
+        --secondary-color: #2c5ba3;
+        --accent-color: #ffd700;
+        --text-color: #333;
+        --light-bg: #f5f5f5;
+        --card-bg: #ffffff;
+        --bg: #0f1724;
+        --glass: rgba(255, 255, 255, 0.06);
+        --accent1: #7c5cff;
+        --accent2: #00d4ff;
+        --border: linear-gradient(135deg, var(--accent1), var(--accent2));
+        --radius: 14px;
+        --shadow: 0 10px 30px rgba(2, 6, 23, 0.6);
+        --bg-1: #0b2a66;
+        --bg-2: #0f4fb3;
+        --card: #eaf4ff;
+        --muted: #cfe6ff;
+        --accent: #2ea3ff;
+        --text-dark: #06203a;
+        --radius: 12px;
+        --shadow: 0 10px 30px rgba(2,6,23,0.35);
+        --gap: 14px;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+      #alley,
+      #heroes,
+      #about,
+      #museum {
+        scroll-margin-top: 15px;
+      }
+
+      body {
+        background: linear-gradient(to right, #91e5f6, #59a5d8);
+      }
+
+      header {
+        background: linear-gradient(
+          to right,
+          var(--primary-color),
+          var(--secondary-color)
+        );
+        color: #fff;
+        position: relative;
+        top: 0;
+        z-index: 100;
+        box-shadow: var(--shadow);
+      }
+      .header {
+        color: #fff;
+        padding: 10px 40px;
+        width: 100%;
+        top: 0;
+        position: sticky;
+        z-index: 9999;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25);
+      }
+      .header__info {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 20px;
+      }
+      .logo.group {
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+        color: #fff;
+        gap: 25px;
+        padding: 5px;
+        border-radius: 5px;
+        transition: background 0.3s ease;
+      }
+      .logo.group:hover {
+        background-color: var(--secondary-color);
+      }
+      .logo.group img {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        user-select: none;
+        background-color: #fff;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+      }
+      .logo__header h1 {
+        font-size: 20px;
+        margin: 0;
+      }
+      .menu-burger {
+        background: none;
+        border: none;
+        color: #fff;
+        cursor: pointer;
+        margin-left: 10px;
+        display: none;
+      }
+      .menu {
+        padding: 15px 0;
+      }
+      .menu ul {
+        display: flex;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+        list-style: none;
+        margin: 0;
+        padding: 0 40px;
+        gap: 25px;
+      }
+      .menu ul li a {
+        color: #fff;
+        text-decoration: none;
+        font-weight: 500;
+        padding: 10px 15px;
+        transition: background 0.3s ease;
+        border-radius: 5px;
+        cursor: pointer;
+        user-select: none;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+      }
+      .menu ul li a:hover {
+        background-color: var(--secondary-color);
+      }
+      @media (max-width: 768px) {
+        .logo__header {
+          display: none;
+        }
+        .menu-burger {
+          display: block;
+        }
+        .menu {
+          display: none;
+          flex-direction: column;
+          background-color: var(--secondary-color);
+          position: absolute;
+          top: 100%;
+          left: 0;
+          width: 100%;
+          border-top: 2px solid var(--primary-color);
+        }
+        .menu.active {
+          display: flex;
+        }
+        .menu ul {
+          flex-direction: column;
+          align-items: center;
+          padding: 20px 10px;
+          margin-bottom: 5px;
+        }
+        .header {
+          padding: 15px 20px;
+        }
+        .logo.group {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+      }
+
+      /* Page layout */
+      .page-body{
+        min-height:100vh;
+        margin:0;
+        padding:24px 18px;
+        box-sizing:border-box;
+        background: linear-gradient(180deg, var(--bg-1), var(--bg-2));
+        display:flex;
+        flex-direction:column;
+        align-items:center; /* center everything horizontally */
+        -webkit-font-smoothing:antialiased;
+        -moz-osx-font-smoothing:grayscale;
+      }
+
+      /* keep header full-width and sticky on top */
+      .site-header{
+        width:100%;
+        position:sticky;
+        top:0;
+        z-index:1000;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.18);
+      }
+
+      /* main wrapper: center content and add gap from header */
+      .wrap{
+        width:100%;
+        max-width:920px;
+        margin:28px auto 0; /* pushes quiz away from header */
+        display:flex;
+        flex-direction:column;
+        align-items:center; /* center children */
+        text-align:center;
+      }
+
+      /* page title and meta */
+      .wrap > header h1{
+        color:#fff;
+        margin-bottom:6px;
+        font-size:20px;
+      }
+      .wrap > header .meta{
+        color: rgba(255,255,255,0.85);
+        font-size:13px;
+        margin-bottom:10px;
+      }
+
+      .title {
+        margin: 25px 25px;
+        color: var(--primary-color);
+      }
+
+      /* card: control width and center inside wrapper */
+      .card{
+        width:100%;
+        max-width:760px;
+        background: linear-gradient(180deg, rgba(255,255,255,0.96), rgba(250,250,255,0.96));
+        border-radius:var(--radius);
+        box-shadow:var(--shadow);
+        padding:20px;
+        color:var(--text-dark);
+      }
+
+      /* question area - keep contents centered */
+      .q-head{
+        display:flex;
+        gap:12px;
+        align-items:center;
+        justify-content:center; /* center hero name + index */
+        margin-bottom:12px;
+        flex-wrap:wrap;
+      }
+
+      .hero-name{ /* keep the original visual but centered */
+        background: linear-gradient(90deg, var(--accent), #3b76ff);
+        color:#fff;
+        padding:8px 12px;
+        border-radius:10px;
+        font-weight:700;
+        box-shadow:0 6px 18px rgba(20,50,120,0.12);
+        font-size:15px;
+      }
+
+      .q-index{
+        font-size:13px;
+        color:#234;
+        opacity:0.85;
+      }
+
+      .question{
+        font-size:18px;
+        margin:8px 0 14px;
+        line-height:1.4;
+        color: #06203a;
+        text-align:center; /* center the question text */
+      }
+
+      /* answers: center buttons and limit their width for better visual balance */
+      .answers{
+        display:flex;
+        flex-direction:column;
+        gap:10px;
+        align-items:center; /* center the answer buttons */
+      }
+
+      .btn{
+        background: linear-gradient(180deg, #f6fbff, #eaf4ff);
+        border:1px solid var(--muted);
+        padding:12px 14px;
+        border-radius:10px;
+        text-align:left;
+        font-size:15px;
+        cursor:pointer;
+        transition: transform 0.12s ease, box-shadow 0.12s;
+        box-shadow: 0 4px 12px rgba(12,40,100,0.06);
+        width:100%;
+        max-width:680px; /* prevents buttons from being too wide */
+      }
+
+      .btn:hover{ transform: translateY(-3px); }
+
+      .btn[aria-disabled="true"]{ cursor:default; opacity:0.9; transform:none; }
+
+      /* feedback states */
+      .btn.correct{ background: linear-gradient(180deg,#e6fff0,#c9ffe4); border-color: rgba(14,168,76,0.2); box-shadow: 0 6px 18px rgba(14,168,76,0.08); }
+      .btn.wrong{ background: linear-gradient(180deg,#fff0f0,#ffdede); border-color: rgba(211,59,59,0.15); box-shadow: 0 6px 18px rgba(211,59,59,0.06); }
+
+      .explain{
+        margin-top:12px;
+        background: linear-gradient(180deg,#f6fbff,#eef8ff);
+        border-left:4px solid var(--accent);
+        padding:10px 12px;
+        border-radius:8px;
+        font-size:14px;
+        display:none;
+        color:#073049;
+        max-width:700px;
+        margin-left:auto;
+        margin-right:auto;
+      }
+
+      .controls{
+        display:flex;
+        gap:10px;
+        margin-top:18px;
+        align-items:center;
+        justify-content:space-between;
+        flex-wrap:wrap;
+      }
+
+      .small{ font-size:13px; color:#123; opacity:0.85; margin-left: 25px;}
+
+      .next-btn{ background: linear-gradient(90deg,var(--accent),#3b76ff); color:#fff; padding:10px 14px; border-radius:10px; border:0; cursor:pointer; font-weight:700; }
+
+      .results{ margin-top:16px; display:none; padding:12px; border-radius:10px; background: linear-gradient(180deg,#f3fbff,#e9f7ff); border:1px solid rgba(46,163,255,0.12); }
+
+      /* responsive tweaks */
+      @media (max-width:760px){
+        .card{ padding:16px; }
+        .btn{ max-width:100%; text-align:center; }
+        .q-head{ gap:8px; }
+      }
+
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <div class="header">
+        <div class="header__info">
+          <a class="logo group" href="https://school10sv.by/" target="_blank">
+            <img src="img/logo.webp" alt="Логотип">
+
+            <div class="logo__header">
+              <h1>ГУО «Средняя школа № 10 г. Светлогорска имени С. Л. Краснопёрова»<h1>
+            </div>
+          </a>
+
+          <button id="menu-burger-icon" class="menu-burger">
+            <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" fill="currentColor" role="img" width="20"
+              height="20" preserveAspectRatio="xMidYMid meet" viewBox="0 0 20 20">
+              <path
+                d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z">
+              </path>
+            </svg>
+          </button>
+        </div>
+
+        <nav class="menu">
+          <ul>
+            <li>
+              <a href="index.html#alley">Аллея</a>
+            </li>
+
+            <li>
+              <a href="index.html#heroes">Герои</a>
+            </li>
+
+            <li>
+              <a href="museum.html#museum">Музей Боевой славы</a>
+            </li>
+
+            <li>
+              <a href="quiz.html">Викторина</a>
+            </li>
+
+            <li>
+              <a href="index.html#about">О нас</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <div class="wrap">
+      <div class="title">
+        <h1>Викторина</h1>
+      </div>
+
+      <main class="card" id="card">
+        <!-- generated content -->
+        <div class="q-head">
+          <div class="hero-name" id="heroName">Герой</div>
+          <div class="q-index small" id="qIndex">Вопрос 1 / 22</div>
+        </div>
+
+        <div class="question" id="question">Вопрос текст</div>
+
+        <div class="answers" id="answers"></div>
+
+        <div class="explain" id="explain"></div>
+
+        <div class="controls">
+          <div class="small">
+            Текущий счёт: <span class="score" id="score">0</span>
+          </div>
+          <div style="display: flex; gap: 10px">
+            <button class="next-btn" id="nextBtn" disabled>
+              Следующий вопрос
+            </button>
+          </div>
+        </div>
+
+        <div class="results" id="results"></div>
+      </main>
+    </div>
+
+    <footer>
+      <div class="container">
+        <p>ГУО «Средняя школа № 10 г. Светлогорска имени С. Л. Краснопёрова»</p>
+        <p>Адрес: г. Светлогорск, ул. Социалистическая, д. 13А</p>
+        <p>Телефон: (2342)23375 (Приемная)</p>
+        <p>Почта: guo@school10sv.by</p>
+        <p>© 2025 Их имена уходят в обелиски...</p>
+        <button class="back-to-top" onclick="scrollToTop();">↑</button>
+      </div>
+    </footer>
+
+    <script>
+      /*
+  quizData: two biographical questions per hero.
+  Each item:
+    hero: displayed name
+    question: text
+    choices: array of strings
+    correct: index of correct choice
+    explanation: short fact/explanation
+    sourceIndex: index into sources[] (0-based)
+*/
+
+      const sources = [
+        /* 0 */ ":contentReference[oaicite:0]{index=0}", // Краснопёров (wiki)
+        /* 1 */ ":contentReference[oaicite:1]{index=1}", // Тепляков (wiki)
+        /* 2 */ ":contentReference[oaicite:2]{index=2}", // Пинчук (wiki)
+        /* 3 */ ":contentReference[oaicite:3]{index=3}", // Чигладзе (wiki)
+        /* 4 */ ":contentReference[oaicite:4]{index=4}", // Редькин (wiki)
+        /* 5 */ ":contentReference[oaicite:5]{index=5}", // Ершов (wiki)
+        /* 6 */ ":contentReference[oaicite:6]{index=6}", // Камынин (wiki)
+        /* 7 */ ":contentReference[oaicite:7]{index=7}", // Стефановский (wiki)
+        /* 8 */ ":contentReference[oaicite:8]{index=8}", // Азалов (wiki)
+        /* 9 */ ":contentReference[oaicite:9]{index=9}", // Мирошниченко (wiki)
+        /*10 */ ":contentReference[oaicite:10]{index=10}", // Леухин (wiki)
+      ];
+
+      /* quiz content (22 questions) */
+      const quizData = [
+        /* 1 */ {
+          hero: "Сергей Леонидович Краснопёров",
+          question: "Где родился Сергей Леонидович Краснопёров?",
+          choices: [
+            "Деревня Покровка (Пермская обл.)",
+            "Город Ленинград",
+            "Деревня Дроново (Тюм. обл.)",
+          ],
+          correct: 0,
+          explanation:
+            "Сергей Леонидович родился 23 июля 1923 г. в деревне Покровка (ныне Чернушинский район Пермского края).",
+          sourceIndex: 0,
+        },
+        {
+          hero: "Сергей Леонидович Краснопёров",
+          question:
+            "Какой род войск и специальность Краснопёрова в годы войны?",
+          choices: [
+            "Лётчик-штурмовик, командир звена",
+            "Танкист",
+            "Моряк-подводник",
+          ],
+          correct: 0,
+          explanation:
+            "Он окончил Балашовскую военную авиационную школу и служил лётчиком-штурмовиком; стал Героем СССР в 1944 г.",
+          sourceIndex: 0,
+        },
+
+        /* 3 */ {
+          hero: "Мартын Пантелеймонович Тепляков",
+          question: "Где Мартын Тепляков работал до призыва в армию?",
+          choices: [
+            "На Алданских золотых приисках (Якутия)",
+            "На текстильной фабрике",
+            "Комендантом в Москве",
+          ],
+          correct: 0,
+          explanation:
+            "С 1936 г. Мартын жил в Якутии и работал на Алданских золотых приисках до призыва.",
+          sourceIndex: 1,
+        },
+        {
+          hero: "Мартын Пантелеймонович Тепляков",
+          question: "В каком году родился Мартын Тепляков?",
+          choices: ["1918", "1916", "1920"],
+          correct: 0,
+          explanation:
+            "Мартын родился 10 января 1918 года (Заводоуковский район, Тюменская обл.).",
+          sourceIndex: 1,
+        },
+
+        /* 5 */ {
+          hero: "Андрей Михайлович Пинчук",
+          question: "Откуда родом Андрей Михайлович Пинчук?",
+          choices: [
+            "Деревня Рассвет (Гомельская обл.)",
+            "Город Минск",
+            "Село Запселье",
+          ],
+          correct: 0,
+          explanation:
+            "Пинчук родился 27 июля 1913 г. в деревне Катай-Болото (ныне Рассвет, Октябрьский р-он, Гомельская обл.).",
+          sourceIndex: 2,
+        },
+        {
+          hero: "Андрей Михайлович Пинчук",
+          question: "Какое звание/роль носил Пинчук в войне (по документам)?",
+          choices: [
+            "Майор, командир танкового подразделения",
+            "Лётчик-истребитель",
+            "Матрос флота",
+          ],
+          correct: 0,
+          explanation:
+            "Он — гвардии майор, командир танкового подразделения; посмертно Герой СССР (1945).",
+          sourceIndex: 2,
+        },
+
+        /* 7 */ {
+          hero: "Серго Гедеванович Чигладзе",
+          question: "В какой стране родился Серго Чигладзе?",
+          choices: ["Грузия", "Белоруссия", "Украина"],
+          correct: 0,
+          explanation:
+            "Чигладзе родился 12 марта 1920 г. в селе Зоди (Чиатурский район, Грузия).",
+          sourceIndex: 3,
+        },
+        {
+          hero: "Серго Гедеванович Чигладзе",
+          question: "Какой род войск и роль выполнял Чигладзе?",
+          choices: [
+            "Пулемётчик (стрелковая дивизия)",
+            "Военный лётчик",
+            "Связист",
+          ],
+          correct: 0,
+          explanation:
+            "Он был наводчиком ручного пулемёта в стрелковом полку и проявил героизм при разведке/штурме.",
+          sourceIndex: 3,
+        },
+
+        /* 9 */ {
+          hero: "Дмитрий Григорьевич Редькин",
+          question: "Где работал Дмитрий Редькин до войны?",
+          choices: [
+            "На металлургическом заводе в Макеевке",
+            "Учителем",
+            "В сельском хозяйстве",
+          ],
+          correct: 0,
+          explanation:
+            "До войны Редькин работал на Макеевском металлургическом заводе им. Кирова.",
+          sourceIndex: 4,
+        },
+        {
+          hero: "Дмитрий Григорьевич Редькин",
+          question: "Когда родился Дмитрий Редькин?",
+          choices: ["10 июня 1915", "1 января 1920", "23 июля 1923"],
+          correct: 0,
+          explanation:
+            "Родился 29 мая (10 июня) 1915 г. — в разных справках указана дата по старому/новому стилю; обычно приводят 10.06.1915.",
+          sourceIndex: 4,
+        },
+
+        /* 11 */ {
+          hero: "Алексей Иванович Ершов",
+          question:
+            "В каком году родился Алексей Ершов (по официальным сведениям)?",
+          choices: ["1920", "1918", "1925"],
+          correct: 0,
+          explanation:
+            "Алексей Ершов родился 18 апреля 1920 г. (по большинству источников).",
+          sourceIndex: 5,
+        },
+        {
+          hero: "Алексей Иванович Ершов",
+          question: "Какое звание имел Ершов и за что он отмечен?",
+          choices: [
+            "Гвардии красноармеец, стрелок; Герой СССР",
+            "Генерал",
+            "Лётчик-испытатель",
+          ],
+          correct: 0,
+          explanation:
+            "Ершов — гв. красноармеец, стрелок 212-го гвардейского полка; ему присвоено звание Героя СССР.",
+          sourceIndex: 5,
+        },
+
+        /* 13 */ {
+          hero: "Кирилл Леонтьевич Камынин",
+          question: "Кирилл Камынин работал кем до войны?",
+          choices: ["Горным мастером на шахте", "Учителем", "Врачом"],
+          correct: 0,
+          explanation:
+            "До войны Камынин работал горным мастером (в ряде источников указывается работа на шахте).",
+          sourceIndex: 6,
+        },
+        {
+          hero: "Кирилл Леонтьевич Камынин",
+          question: "Какое звание/роль у Камынина в армии?",
+          choices: [
+            "Гвардии сержант, командир стрелкового отделения",
+            "Морской офицер",
+            "Авиаинженер",
+          ],
+          correct: 0,
+          explanation:
+            "Камынин — гвардии сержант, командир стрелкового отделения; награждён званием Героя СССР.",
+          sourceIndex: 6,
+        },
+
+        /* 15 */ {
+          hero: "Пётр Михайлович Стефановский",
+          question: "Пётр Стефановский известен как:",
+          choices: [
+            "Лётчик-испытатель и генерал-майор авиации",
+            "Пехотный командир",
+            "Танкист",
+          ],
+          correct: 0,
+          explanation:
+            "Стефановский — лётчик-испытатель 1 класса, генерал-майор авиации, Герой СССР (1948).",
+          sourceIndex: 7,
+        },
+        {
+          hero: "Пётр Михайлович Стефановский",
+          question: "Где родился Пётр Стефановский?",
+          choices: [
+            "Хутор Покровка (Минская губ.)",
+            "Город Москва",
+            "Село Запселье",
+          ],
+          correct: 0,
+          explanation:
+            "Родился на хуторе Покровка (территория Светлогорского р-на, Гомельская обл.).",
+          sourceIndex: 7,
+        },
+
+        /* 17 */ {
+          hero: "Клычнияз Акзамович Азалов",
+          question: "Откуда родом Клычнияз Азалов?",
+          choices: [
+            "Аул Меджаур Баба Сары (Туркм.)",
+            "Минск",
+            "Сумская область",
+          ],
+          correct: 0,
+          explanation:
+            "Азалов родился 10 марта 1921 г. в ауле Меджаур Баба Сары (ныне Марыйский велаят, Туркменистан).",
+          sourceIndex: 8,
+        },
+        {
+          hero: "Клычнияз Акзамович Азалов",
+          question: "В каком роде войск служил Азалов?",
+          choices: [
+            "Кавалерия (гвардейский кавалерийский полк)",
+            "Авиация",
+            "Флот",
+          ],
+          correct: 0,
+          explanation:
+            "Служил в 58-м гвардейском кавалерийском полку (кавалерист); удостоен звания Героя СССР.",
+          sourceIndex: 8,
+        },
+
+        /* 19 */ {
+          hero: "Пётр Афанасьевич Мирошниченко",
+          question: "Чем работал Мирошниченко до войны?",
+          choices: [
+            "Токарь на машиностроительном заводе (г. Сумы)",
+            "Учителем",
+            "Юристом",
+          ],
+          correct: 0,
+          explanation:
+            "До войны он работал токарем на машиностроительном заводе в Сумах.",
+          sourceIndex: 9,
+        },
+        {
+          hero: "Пётр Афанасьевич Мирошниченко",
+          question: "За какой поступок Мирошниченко стал известен (коротко)?",
+          choices: [
+            "Закрыл своим телом амбразуру вражеского дзота",
+            "Сбил самолёт",
+            "Подорвал мост",
+          ],
+          correct: 0,
+          explanation:
+            "В бою он закрыл своим телом амбразуру вражеского дзота в деревне Печищи и за это посмертно стал Героем СССР.",
+          sourceIndex: 9,
+        },
+
+        /* 21 */ {
+          hero: "Никанор Андреевич Леухин",
+          question: "Где родился Никанор Леухин?",
+          choices: [
+            "Село Нижняя Ненинка (Алтайский край)",
+            "Деревня Михайловка",
+            "Хутор Покровка",
+          ],
+          correct: 0,
+          explanation:
+            "Леухин родился 4 августа 1918 г. (в ряде источников указывается Нижняя Ненинка, Алтайский край).",
+          sourceIndex: 10,
+        },
+        {
+          hero: "Никанор Андреевич Леухин",
+          question: "Какую должность имел Леухин в армии?",
+          choices: [
+            "Командир 76-мм орудия артбатареи",
+            "Лётчик-штурмовик",
+            "Минёр",
+          ],
+          correct: 0,
+          explanation:
+            "Он командовал 76-мм орудием артиллерийской батареи и был награждён званием Героя СССР.",
+          sourceIndex: 10,
+        },
+      ];
+
+      /* state */
+      let index = 0; // 0..21
+      let score = 0;
+      const total = quizData.length;
+
+      const heroNameEl = document.getElementById("heroName");
+      const qIndexEl = document.getElementById("qIndex");
+      const questionEl = document.getElementById("question");
+      const answersEl = document.getElementById("answers");
+      const explainEl = document.getElementById("explain");
+      const scoreEl = document.getElementById("score");
+      const nextBtn = document.getElementById("nextBtn");
+      const showSourceBtn = document.getElementById("showSource");
+      const resultsEl = document.getElementById("results");
+
+      function renderQuestion(i) {
+        const item = quizData[i];
+        heroNameEl.textContent = item.hero;
+        qIndexEl.textContent = `Вопрос ${i + 1} / ${total}`;
+        questionEl.textContent = item.question;
+        answersEl.innerHTML = "";
+        explainEl.style.display = "none";
+        explainEl.innerHTML = "";
+        nextBtn.disabled = true;
+
+        item.choices.forEach((choice, ci) => {
+          const b = document.createElement("button");
+          b.className = "btn";
+          b.textContent = choice;
+          b.setAttribute("data-idx", ci);
+          b.setAttribute("aria-disabled", "false");
+
+          b.addEventListener("click", () => {
+            /* if already answered, ignore */
+            if (answersEl.querySelector("[data-answered]")) return;
+
+            b.setAttribute("data-answered", "1");
+
+            const correct = item.correct;
+            /* mark all buttons disabled visually and prevent further clicks */
+            Array.from(answersEl.querySelectorAll(".btn")).forEach((bb) => {
+              bb.setAttribute("aria-disabled", "true");
+            });
+
+            if (ci === correct) {
+              b.classList.add("correct");
+              score++;
+              scoreEl.textContent = score;
+            } else {
+              b.classList.add("wrong");
+              /* highlight the true answer */
+              const trueBtn = answersEl.querySelector(
+                `[data-idx='${correct}']`,
+              );
+              if (trueBtn) trueBtn.classList.add("correct");
+            }
+
+            /* show explanation and source button action updates */
+            explainEl.innerHTML = `<strong>Пояснение:</strong> ${item.explanation}`;
+            explainEl.style.display = "block";
+            nextBtn.disabled = false;
+            showSourceBtn.onclick = () => {
+              /* open a small facts panel below using the same citation token (rendered by UI). */
+              alert(
+                "Источник: " +
+                  sources[item.sourceIndex] +
+                  "\n\nОткройте страницу с источником (см. список внизу страницы).",
+              );
+            };
+          });
+
+          answersEl.appendChild(b);
+        });
+      }
+
+      nextBtn.addEventListener("click", () => {
+        index++;
+        if (index < total) {
+          renderQuestion(index);
+        } else {
+          showResults();
+        }
+      });
+
+      /* show results */
+      function showResults() {
+        document
+          .getElementById("card")
+          .scrollIntoView({ behavior: "smooth", block: "start" });
+        resultsEl.style.display = "block";
+        resultsEl.innerHTML = `<strong>Викторина завершена.</strong>
+    <div style="margin-top:8px">Баллы: <span style="font-weight:900">${score}</span> из ${total}.</div>
+    <div style="margin-top:8px; font-size:13px; color:#08304a">Подсказка: правильные ответы кратко объяснены под каждым вопросом — можно пройти ещё раз.</div>
+    <div style="margin-top:12px"><button class="next-btn" id="retry">Пройти ещё раз</button></div>`;
+        document
+          .getElementById("retry")
+          .addEventListener("click", () => location.reload());
+      }
+
+      /* initial render */
+      renderQuestion(index);
+
+      /* keyboard accessibility: 1..4 keys to answer; Enter Next */
+      document.addEventListener("keydown", (e) => {
+        const choices = answersEl.querySelectorAll(".btn");
+        if (!choices.length) return;
+        if (e.key >= "1" && e.key <= String(choices.length)) {
+          choices[Number(e.key) - 1].click();
+        } else if (e.key === "Enter" && !nextBtn.disabled) {
+          nextBtn.click();
+        }
+      });
+    </script>
+    <script src="js/back.js" defer></script>
+    <script src="js/burger.js" defer></script>
+  </body>
+</html>
