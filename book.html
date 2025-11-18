@@ -1,0 +1,97 @@
+
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Их имена уходят в обелиски...</title>
+    <link rel="stylesheet" href="css/style-ui.css" />
+    <link rel="stylesheet" href="css/button.css" />
+    <link rel="stylesheet" href="css/pdf-view.css" />
+  </head>
+
+  <body>
+
+    <header>
+      <div class="header">
+        <div class="header__info">
+          <a class="logo group" href="https://school10sv.by/" target="_blank">
+            <img src="img/logo.png" alt="Логотип">
+
+            <div class="logo__header">
+              <h1>ГУО «Средняя школа № 10 г. Светлогорска имени С. Л. Краснопёрова»<h1>
+            </div>
+          </a>
+
+          <button id="menu-burger-icon" class="menu-burger">
+            <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" fill="currentColor" role="img" width="20"
+              height="20" preserveAspectRatio="xMidYMid meet" viewBox="0 0 20 20">
+              <path
+                d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z">
+              </path>
+            </svg>
+          </button>
+        </div>
+
+        <nav class="menu">
+          <ul>
+            <li>
+              <a href="index.html#alley">Аллея</a>
+            </li>
+
+            <li>
+              <a href="index.html#heroes">Герои</a>
+            </li>
+
+            <li>
+              <a href="museum.html#museum">Музей Боевой славы</a>
+            </li>
+
+            <li>
+              <a href="quiz.html">Викторина</a>
+            </li>
+
+            <li>
+              <a href="index.html#about">О нас</a>
+            </li>
+
+            <li>
+              <a href="book.html#book">Книга дружбы</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <div class="hero">
+      <h1>Их имена уходят в обелиски...</h1>
+    </div>
+
+    <div class="container">
+      <section id="book">
+              <h2 style="margin-top: 35px;">Книга об истории дружбы ГУО “Средняя школа №10 г. Светлогорска имени С. Л. Красноперова” с
+              МБОУ “Кадетская школа имени Е. Францева“
+              г. Чернушка Пермского края</h2>
+              <div class="pdf-wrapper">
+                  <embed
+                      src="pdf/История_Нашей_Дружбы.pdf"
+                      type="application/pdf"
+                      class="pdf-viewer">
+            </section>
+    </div>
+
+    <footer>
+      <div class="container">
+        <p>ГУО «Средняя школа № 10 г. Светлогорска имени С. Л. Краснопёрова»</p>
+        <p>Адрес: г. Светлогорск, ул. Социалистическая, д. 13А</p>
+        <p>Телефон: (2342)23375 (Приемная)</p>
+        <p>Почта: guo@school10sv.by</p>
+        <p>© 2025 Их имена уходят в обелиски...</p>
+        <button class="back-to-top" onclick="scrollToTop();">↑</button>
+      </div>
+    </footer>
+
+    <script src="js/back.js" defer></script>
+    <script src="js/burger.js" defer></script>
+  </body>
+</html>
