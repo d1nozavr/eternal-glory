@@ -1,0 +1,381 @@
+.video-card {
+  max-width: 920px;
+  margin: 18px auto;
+  padding: 8px;
+}
+
+.video-link {
+  display: block;
+  position: relative;
+  width: 100%;
+  padding-top: 56.25%;
+  border-radius: 14px;
+  overflow: hidden;
+  text-decoration: none;
+  transition:
+    transform 0.22s cubic-bezier(0.2, 0.9, 0.2, 1),
+    box-shadow 0.22s;
+  will-change: transform;
+  outline: none;
+  background: transparent;
+}
+
+.video-link .vc-bg {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(
+      1200px 400px at 10% 10%,
+      rgba(255, 255, 255, 0.04),
+      transparent 10%
+    ),
+    linear-gradient(135deg, #8ecae6 0%, #219ebc 100%);
+  filter: saturate(0.98) contrast(1.02);
+  transform-origin: center;
+  transition:
+    transform 0.35s ease,
+    filter 0.35s ease;
+  z-index: 0;
+}
+
+.video-link .vc-content {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding: 18px 22px;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.vc-play {
+  flex: 0 0 84px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: translateZ(0);
+}
+
+.vc-play-svg {
+  width: 84px;
+  height: 84px;
+  display: block;
+}
+
+.vc-play-circle {
+  fill: rgba(255, 255, 255, 0.06);
+  stroke: rgba(255, 255, 255, 0.18);
+  stroke-width: 2;
+  filter: drop-shadow(0 6px 18px rgba(0, 0, 0, 0.28));
+}
+
+.vc-play-triangle {
+  fill: #fff;
+  transform-origin: center;
+  transition: transform 0.22s ease;
+  opacity: 0.98;
+}
+
+.vc-text {
+  color: #fff;
+  text-shadow: 0 6px 20px rgba(0, 0, 0, 0.45);
+  pointer-events: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-width: 0;
+}
+
+.vc-title {
+  font-family:
+    Inter,
+    system-ui,
+    -apple-system,
+    "Segoe UI",
+    Roboto,
+    "Helvetica Neue",
+    Arial;
+  font-size: 1.05rem;
+  font-weight: 700;
+  line-height: 1.15;
+  margin-bottom: 6px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.vc-sub {
+  font-size: 0.86rem;
+  opacity: 0.92;
+  font-weight: 500;
+}
+
+.vc-cta {
+  position: absolute;
+  right: 14px;
+  bottom: 12px;
+  background: rgba(0, 0, 0, 0.18);
+  color: #fff;
+  font-size: 0.78rem;
+  padding: 6px 10px;
+  border-radius: 999px;
+  z-index: 3;
+  backdrop-filter: blur(6px);
+  pointer-events: none;
+  transition: transform 0.2s;
+}
+
+.video-link:hover,
+.video-link:focus {
+  transform: translateY(-4px);
+  box-shadow: 0 18px 45px rgba(40, 20, 80, 0.18);
+}
+
+.video-link:hover .vc-bg,
+.video-link:focus .vc-bg {
+  transform: scale(1.04) rotate(-1deg);
+  filter: saturate(1.06) contrast(1.04);
+}
+
+.video-link:hover .vc-play-triangle,
+.video-link:focus .vc-play-triangle {
+  transform: translateX(4px) scale(1.02);
+}
+
+.video-link:focus {
+  box-shadow: 0 0 0 4px rgba(255, 110, 90, 0.18);
+}
+
+.video-card {
+  max-width: 620px;
+  margin: 14px auto;
+  padding: 6px;
+  box-sizing: border-box;
+  font-family:
+    Inter,
+    system-ui,
+    -apple-system,
+    "Segoe UI",
+    Roboto,
+    "Helvetica Neue",
+    Arial;
+}
+
+.video-link {
+  display: block;
+  position: relative;
+  width: 100%;
+  padding-top: 42%;
+  border-radius: 12px;
+  overflow: hidden;
+  text-decoration: none;
+  transition:
+    transform 0.22s cubic-bezier(0.2, 0.9, 0.2, 1),
+    box-shadow 0.22s;
+  will-change: transform;
+  outline: none;
+  background: transparent;
+}
+
+.video-link .vc-bg {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(
+      900px 300px at 8% 12%,
+      rgba(255, 255, 255, 0.035),
+      transparent 10%
+    ),
+    linear-gradient(135deg, #8ecae6 0%, #219ebc 100%);
+  filter: saturate(0.98) contrast(1.02);
+  transform-origin: center;
+  transition:
+    transform 0.35s ease,
+    filter 0.35s ease;
+  z-index: 0;
+}
+
+.video-link .vc-content {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 16px;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.vc-play {
+  flex: 0 0 58px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: translateZ(0);
+}
+
+.vc-play-svg {
+  width: 58px;
+  height: 58px;
+  display: block;
+}
+
+.vc-play-circle {
+  fill: rgba(255, 255, 255, 0.06);
+  stroke: rgba(255, 255, 255, 0.16);
+  stroke-width: 1.6;
+  filter: drop-shadow(0 6px 14px rgba(0, 0, 0, 0.22));
+}
+
+.vc-play-triangle {
+  fill: #ffffff;
+  transform-origin: center;
+  transition: transform 0.18s ease;
+  opacity: 0.98;
+}
+
+.vc-text {
+  color: #fff;
+  text-shadow: 0 6px 18px rgba(0, 0, 0, 0.4);
+  pointer-events: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-width: 0;
+}
+
+.vc-title {
+  font-size: 0.95rem;
+  font-weight: 700;
+  line-height: 1.15;
+  margin-bottom: 5px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.vc-sub {
+  font-size: 0.78rem;
+  opacity: 0.95;
+  font-weight: 500;
+}
+
+.vc-cta {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  background: rgba(0, 0, 0, 0.16);
+  color: #fff;
+  font-size: 0.7rem;
+  padding: 4px 8px;
+  border-radius: 999px;
+  z-index: 3;
+  backdrop-filter: blur(6px);
+  pointer-events: none;
+  transition: transform 0.18s;
+}
+
+.video-link:hover,
+.video-link:focus {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 36px rgba(34, 40, 60, 0.18);
+}
+
+.video-link:hover .vc-bg,
+.video-link:focus .vc-bg {
+  transform: scale(1.035) rotate(-0.8deg);
+  filter: saturate(1.05) contrast(1.04);
+}
+
+.video-link:hover .vc-play-triangle,
+.video-link:focus .vc-play-triangle {
+  transform: translateX(3px) scale(1.015);
+}
+
+.video-link:focus {
+  box-shadow: 0 0 0 4px rgba(34, 150, 240, 0.14);
+}
+
+@media (max-width: 560px) {
+  .video-card {
+    padding: 6px;
+    max-width: 100%;
+  }
+  .video-link {
+    padding-top: 48%;
+  }
+  .vc-play {
+    flex-basis: 48px;
+  }
+  .vc-play-svg {
+    width: 48px;
+    height: 48px;
+  }
+  .vc-title {
+    font-size: 0.92rem;
+  }
+  .vc-sub {
+    font-size: 0.72rem;
+  }
+  .vc-cta {
+    right: 8px;
+    bottom: 8px;
+    font-size: 0.66rem;
+    padding: 3px 6px;
+  }
+}
+
+.video-card--tiny .video-link {
+  padding-top: 36%;
+  border-radius: 10px;
+}
+.video-card--tiny .vc-play {
+  flex-basis: 44px;
+}
+.video-card--tiny .vc-play-svg {
+  width: 44px;
+  height: 44px;
+}
+.video-card--tiny .vc-title {
+  font-size: 0.86rem;
+}
+.video-card--tiny .vc-sub {
+  font-size: 0.68rem;
+}
+.video-card--tiny .vc-cta {
+  font-size: 0.62rem;
+  padding: 3px 6px;
+}
+
+.vc-title--line-clamp {
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+@media (max-width: 560px) {
+  .video-card {
+    padding: 6px;
+  }
+  .vc-play {
+    flex-basis: 64px;
+  }
+  .vc-play-svg {
+    width: 64px;
+    height: 64px;
+  }
+  .vc-title {
+    font-size: 0.98rem;
+  }
+  .vc-sub {
+    font-size: 0.78rem;
+  }
+  .vc-cta {
+    right: 10px;
+    bottom: 10px;
+    font-size: 0.72rem;
+    padding: 5px 8px;
+  }
+}
